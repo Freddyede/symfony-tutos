@@ -2,15 +2,14 @@
 
 namespace App\Tests\Func;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Services\ControllerServices;
+use PHPUnit\Framework\TestCase;
 
-class AppTest extends WebTestCase
+class AppTest extends TestCase
 {
-    public function testSomething(): void
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/');
-
-        $this->assertSelectorTextContains('h1', 'Hello HomeController!');
+    public function testSomething(): void {
+        $services = new ControllerServices();
+        $services->setName('HomeController');
+        $this->assertEquals('HomeController', $services->getName());
     }
 }
