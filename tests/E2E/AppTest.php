@@ -11,6 +11,6 @@ class AppTest extends PantherTestCase
         $client = static::createPantherClient();
         $crawler = $client->request('GET', '/');
 
-        self::assertSelectorTextContains('h1', 'Hello HomeController! ✅');
+        $this->assertSelectorTextContains('h1', 'Hello HomeController! ✅');
     }
 }
